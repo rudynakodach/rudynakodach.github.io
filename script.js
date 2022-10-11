@@ -32,6 +32,10 @@ function OpenNewTab() {
     window.open(ActiveLink, "_black").focus();
 }
 
+function OpenURL(url) {
+    window.open("https://" + url).focus();
+}
+
 function OpenProject1InBrowser() {
-    window.open("https://github.com/rudynakodach/SteamCalc").focus()
+    window.open("https://github.com/rudynakodach/SteamCalc").focus();
 }
