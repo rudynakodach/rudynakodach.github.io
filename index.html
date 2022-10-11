@@ -1,24 +1,72 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
+        <link rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Roboto">
         <title>Test</title>
+        <meta charset="UTF-8">
+        <style>
+            body {
+                font-family: 'Roboto', serif;
+                font-size: 25px;
+                background-color: #0d1117;
+            }
+            h1 {
+                color: deepskyblue;
+            }
+        </style>
     </head>
     <body>
         <div>
             <a href="https://www.youtube.com/watch?v=xvFZjo5PgG0" target="_blank">
-                <img src="igorek.png" width="110%" height="100" style="margin-left: -5%; margin-top: -1%;">
+                <img src="https://cdn.discordapp.com/attachments/964832740761550909/1029444711980728450/unknown.png" width="105.35%" height="100" style="margin-left: -5%; margin-top: -1%;">
             </a>
-        </div>
-        <div style="margin: 10%;">
-            <h1 class="h1Class" style="font-family:Arial, Helvetica, sans-serif; text-align: center;">Nie klikaj lol</h1>
-            <div style="text-align: center;">
-                <button style="font-style:normal;" onclick="play()">XD</button>
+            <h2 style="font-size: 23px; text-align: center; color: blue;">Rudy Na Kodach</h2>
+            <h1 style="text-align: center; font-size:23px;">Projekty/Testy: </h1>
+            <div id="Projects">
+                <table>
+                    <tr>
+                        <div id = Project1div>
+                            <br>
+                            <h1 id="Project1Name" style="text-align:center;">
+                                prnt.sc gen
+                                <div>
+                                    <img src="https://cdn.discordapp.com/attachments/1018186213234061404/1029436949175472169/unknown.png">
+                                </div>
+                                <button onclick="OpenProject1InBrowser()" style="margin-top: 10px;">Github</button> <button>Download</button>
+                            </h1>
+                        </div>
+                    </tr>
+                    <tr>
+                        <div id="Project2div">
+                            <br>
+                            <h1>test</h1>
+                        </div>
+                    </tr>
+                </table>  
             </div>
         </div>
-        <div style="margin-left: auto; margin-right: auto;">
-            <img src="https://cdn.discordapp.com/attachments/798304793680281632/1029017978987089932/Zrzut_ekranu_2022-10-08_194550.png" onclick="rickroll()" style="margin-left: 42%;"> 
+        <div>
+            <h1 style="text-align: center;">SoundTest</h1>
+            <div style="text-align: center;">
+                <button style="font-style:normal;" onclick="play()">PlaySound</button>
+            </div>
+        </div>
+        <div>
+            <h5 style="font-size: 23px; text-align: center;">prnt.sc gen test</h5>
+            <h1 id="currentLink" style="text-align: center;">
+                Link
+                <div>
+                    <button onclick="Link()">Generate</button><br>
+                    <button onclick="OpenNewTab()">Open In A New Tab</button>
+                </div>
+            </h1>
+
         </div>
 
+
+
         <script src="script.js"></script>
+        </table>
     </body>
 </html>
