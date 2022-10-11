@@ -1,2 +1,2 @@
 # rudynakodach.github.io
-please dont look at this
+me learning html and css be like
