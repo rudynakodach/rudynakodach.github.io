@@ -1,3 +1,3 @@
 # rudynakodach.github.io
 
-[Website here]("www.rudynakodach.github.io")
+Click [here]("rudynakodach.github.io")
