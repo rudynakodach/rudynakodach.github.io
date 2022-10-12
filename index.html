@@ -27,30 +27,41 @@
                 <table>
                     <tr style="margin-left: auto; margin-right: auto">
                         <td>
-                            <div id = "Project1div">
-                                <br>
-                                <h1 id="Project1Name" style="text-align:center; margin-left: 5%;">
-                                    prnt.sc gen
-                                    <div>
-                                        <img src="https://cdn.discordapp.com/attachments/1018186213234061404/1029436949175472169/unknown.png">
-                                    </div>
-                                    <h1 style="text-align: center; font-size: 32px; color: #FFF1D0;">Description</h1>
-                                    <span style="font-size: large;">
-                                        <h1 style="text-align: left; font-size: 17px; color: #FFF1D0; margin-left: 15%; margin-right: 2%;">With this program you can generate image links to prnt.sc, view then inside the application and even download them. My first Windows Forms project.</h1>
-                                        <h1 style="color: #FFF1D0;text-align: center; font-size: 22px;"> Language: C#</h1>
-                                    </span>
-                                    <span style="text-align: center;">
-                                        <button onclick="OpenProject1InBrowser()" style="margin-top: 10px;">Github</button> <button onclick="OpenURL('cdn.discordapp.com/attachments/1018186213234061404/1029500742375055360/prntsc_gen.zip')">Download</button>
-                                    </span>
+                            <br>
+                            <h1 id="Project1Name" style="text-align:center; margin-left: 5px; margin-right: 5px;">
+                                prnt.sc gen
+                                <div>
+                                    <img src="https://cdn.discordapp.com/attachments/1018186213234061404/1029436949175472169/unknown.png">
+                                </div>
+                                <h1 style="text-align: center; font-size: 32px; color: #FFF1D0;">Description</h1>
+                                <span style="font-size: large;" id="Project1description">
+                                    <h1 style="text-align: justify; font-size: 17px; color: #FFF1D0; margin-left: 20%; margin-right: 20%;">With this program you can generate image links to prnt.sc, view then inside the application and even download them.</h1>
+                                    <h1 style="color: #FFF1D0;text-align: center; font-size: 22px;"> Language: C#</h1>
+                                </span>
+                                <h1 style="text-align: center;">
+                                    <button onclick="OpenProject1InBrowser()">Github</button> <button onclick="OpenURL('cdn.discordapp.com/attachments/1018186213234061404/1029500742375055360/prntsc_gen.zip')">Download</button>
                                 </h1>
-                            </div>
+                            </h1>
                         </td>
-                        <td>
-                            <div id="Project2div" style="text-align: center; margin-right: 25%;">
+                        <td style="text-align:center; margin-left: -5px">
+                            <div style="margin-right: 10%; margin-top: -20%">
+                                <br>
                                 <h1>Steam Calculator</h1>
                                 <div style=" margin-top: -35px;">
-                                    <img src="https://cdn.discordapp.com/attachments/1018186213234061404/1029502829141950565/unknown.png" style="margin-right: 20%">
+                                    <img src="https://cdn.discordapp.com/attachments/1018186213234061404/1029502829141950565/unknown.png" style="width: 110%; height: 110%;">
                                 </div>
+                                <span style="margin-top:auto;">
+                                    <h1 style="color: #FFF1D0; font-size:32px">Description</h1>
+                                    <h1 style="text-align: justify; font-size: 17px; color: #FFF1D0; margin-left: 20%; margin-right: 20%;">
+                                        Using 'Steam Calculator' you can calculate your or somebody's else total time spent on playing games.
+                                    </h1>
+                                    <h1 style="text-align: center; font-size: 22px; color: #FFF1D0">
+                                        Language: C#
+                                    </h1>
+                                    <h2>
+                                        <button onclick="OpenURL('github.com/rudynakodach/SteamCalc')">Github</button> <button onclick="OpenURL('cdn.discordapp.com/attachments/1018186213234061404/1029433356313706576/SteamCalculator.zip')">Download</button>
+                                    </h2>
+                                </span>
                             </div>
                         </td>
                     </tr>
@@ -67,15 +78,14 @@
             <h5 style="font-size: 23px; text-align: center;">prnt.sc gen test</h5>
             <h1 id="currentLink" style="text-align: center;">
                 Link
-                <div>
+            </h1>
+            <div>
+                <h2 style="text-align: center;">
                     <button onclick="Link()">Generate</button><br>
                     <button onclick="OpenNewTab()">Open In A New Tab</button>
-                </div>
-            </h1>
-
+                </h2>
+            </div>
         </div>
-
         <script src="script.js"></script>
-        </table>
     </body>
 </html>
