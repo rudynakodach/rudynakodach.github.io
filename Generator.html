@@ -1,11 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
-    
-<head>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans">
-    <title>Generator - Rudy Na Kodach</title>
-</head>
-    
+    <head>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans">
+        <title>Generator - Rudy Na Kodach</title>
+    </head>
     <style>
         body {
             font-family: 'Open Sans', serif;
@@ -16,21 +14,21 @@
             color: darkgrey;
         }
         hr {
-            border-top: 2px solid cornflowerblue;
+            border-top: 2px solid #6495ed;
             padding: 0;
         }
     </style>
-
     <body>
-
         <h1 style="text-align:center">'Image' Generator</h1>
         <hr>
 
         <div id="MainBody" style="text-align: center;">
-            <h1 id="currentLink"></h1>
-            <button onclick="GenerateLink()">test</button>
-            <button onclick="OpenURL()">test2</button>
-            <button onclick="test()">get test</button>
+            <br>
+            <button onclick="GenerateLink()">Generete</button>
+            <button onclick="OpenURL()">Open</button>
+            <h1 id="currentLink" style="font-size:20px; color:azure"></h1>
+            <h1 style="font-size: medium">Will work Soon™</h1>
+            <button onclick="test()">[TEST] GET Request to current link</button>
             <img src="" id="GeneratedImage">
         </div>
         <br>

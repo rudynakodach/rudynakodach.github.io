@@ -1,0 +1,42 @@
+body {
+    font-family: 'Roboto', serif;
+    font-size: 25px;
+    background-color: #0d1117;
+}
+h1 {
+    color: deepskyblue;
+}
+hr {
+    display: block; 
+    height: 2px;
+    border: 0; 
+    border-top: 2px solid rgb(80, 80, 80);
+    padding: 0; 
+}
+header.navbarHeader {
+    background-color: #484f58;
+}
+
+nav ul {
+    margin:0;
+    padding: 0;
+    list-style: none;
+}
+
+nav li {
+    display: inline-block;
+    margin-left: 70px;
+    padding-top: 25px;
+    padding-bottom: 25px;
+    font-size: medium;
+}
+
+nav ul li a:hover {
+    color:white;
+}
+
+nav a {
+    color: greenyellow;
+    text-decoration: none;
+    text-transform: uppercase;
+}
