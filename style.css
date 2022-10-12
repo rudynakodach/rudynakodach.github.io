@@ -80,6 +80,18 @@ button:hover {
     transition: border-color 150ms linear;
     transition: background-color 100ms linear;
 }
+
+img.discordLogo {
+    padding-top:10px;
+    float: right;
+}
+
 .li1 {
     padding-bottom: 2px;
+}
+
+nav ul li.discord {
+    float: right;
+    margin-right: 25px;
+    color: #7289da;
 }
