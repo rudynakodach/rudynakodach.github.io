@@ -29,14 +29,57 @@ nav li {
     padding-top: 25px;
     padding-bottom: 25px;
     font-size: medium;
+
+    position: relative;
 }
 
 nav ul li a:hover {
     color:white;
+    transition: color 150ms linear;
 }
 
 nav a {
     color: greenyellow;
     text-decoration: none;
     text-transform: uppercase;
+}
+
+nav a::before {
+    content: '';
+    display: block;
+    height: 5px;
+    width: 0%;
+    background-color: greenyellow;
+
+    position: absolute;
+    top: 0;
+
+    transition: all ease-in-out 250ms;
+}
+
+nav a:hover::before {
+    width: 100%;
+}
+
+button {
+    padding-top: 2px;
+    padding-bottom: 2px;
+    padding-left: 2px;
+    padding-right: 2px;
+    border-color: rgba(0, 0, 0, 0);
+    background-color: rgba(255,255,255,0);
+    color: #FFF;
+    border-radius: 1px;
+    border-color: greenyellow;
+}
+button:hover {
+    color:greenyellow;
+    border-color: white;
+    background-color: rgba(255,255,255,0.2);
+    transition: color 150ms linear;
+    transition: border-color 150ms linear;
+    transition: background-color 100ms linear;
+}
+.li1 {
+    padding-bottom: 2px;
 }
