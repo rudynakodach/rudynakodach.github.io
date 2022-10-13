@@ -3,8 +3,12 @@ body {
     font-size: 25px;
     background-color: #0d1117;
 }
+h2 {
+    color: slategrey;
+}
+
 h1 {
-    color: deepskyblue;
+    color:dimgray;
 }
 hr {
     display: block; 
@@ -77,27 +81,46 @@ button {
     color: #FFF;
     border-radius: 1px;
     border-color: greenyellow;
+    border-radius: 10px;
+    border: 2px solid #73AD21;
+    padding: 10px;
+    font-family: 'Work Sans';
 }
 button:hover {
     color:greenyellow;
     border-color: white;
-    background-color: rgba(255,255,255,0.2);
+    background-color: rgba(112,128,144,0.2);
     transition: color 150ms linear;
     transition: border-color 150ms linear;
     transition: background-color 100ms linear;
 }
 
-img.discordLogo {
-    padding-top:10px;
-    float: right;
+button:active {
+    background-color: rgba(255, 255, 255, 0.3);
 }
 
-.li1 {
-    padding-bottom: 2px;
+div.ProjectDiv {
+    border-radius: 25px;
+    border: 2px solid #73AD21;
+    padding: 25px;
 }
 
 nav ul li.discord {
     float: right;
     margin-right: 25px;
     color: #7289da;
+}
+
+hr {
+    color:#7289da;
+    border-radius: 15px, 50px, 30px, 5px;
+}
+
+.li1 {
+    padding-bottom: 2px;
+}
+
+.homePage {
+    color:#0d1117;
+    text-decoration: wavy;
 }
