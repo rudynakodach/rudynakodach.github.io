@@ -8,6 +8,7 @@ h2 {
 }
 
 h1 {
+    font-family: 'Work Sans';
     color:dimgray;
 }
 hr {
@@ -43,6 +44,7 @@ nav ul li a:hover {
 }
 
 nav ul li a {
+    font-family: 'Work Sans';
     color:greenyellow;
     transition: 150ms;
 }
@@ -85,24 +87,18 @@ button {
     border: 2px solid #73AD21;
     padding: 10px;
     font-family: 'Work Sans';
+
+    transition: all ease-in-out 100ms;
 }
 button:hover {
     color:greenyellow;
     border-color: white;
     background-color: rgba(112,128,144,0.2);
-    transition: color 150ms linear;
-    transition: border-color 150ms linear;
-    transition: background-color 100ms linear;
 }
 
 button:active {
     background-color: rgba(255, 255, 255, 0.3);
 }
-
-
-
-
-
 
 div.ProjectDiv {
     border-radius: 25px;
@@ -127,11 +123,16 @@ hr {
     border-radius: 15px, 50px, 30px, 5px;
 }
 
+h2.homePage {
+    color:rgb(220,220,220);
+    text-align: center;
+}
+
 .li1 {
     padding-bottom: 2px;
 }
 
-h2.homePage {
-    color:rgb(220,220,220);
-    text-align: center;
+.Project1description {
+    font-family: 'Roboto';
+    color:#000
 }

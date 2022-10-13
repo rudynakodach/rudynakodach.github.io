@@ -2,7 +2,7 @@
 <html lang="en">
     <header class="navbarHeader">
         <nav>
-            <ul>
+            <ul style="font-family:'Work Sans';">
                 <li style="font-size: large" class="li1">Rudy Na Kodach</li>
                 <li><a href="https://rudynakodach.github.io">home page</li></a>
                 <li><a href="https://github.com/rudynakodach">My Github</li></a>
@@ -13,24 +13,11 @@
     </header>
     <head>
         <link rel="stylesheet" href="style.css" type="text/css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Work+Sans">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans">
         <title>Generator - Rudy Na Kodach</title>
     </head>
-    <style>
-        body {
-            font-family: 'Open Sans', serif;
-            font-size: 25px;
-            background-color: #0d1117;
-        }
-        h1 {
-            color: darkgrey;
-        }
-        hr {
-            border-top: 2px solid #6495ed;
-            padding: 0;
-        }
-    </style>
-    <body>
+    <body style="font-family: 'Work Sans';">
         <h1 style="text-align:center">'Image' Generator</h1>
         <hr>
 
@@ -38,7 +25,10 @@
             <br>
             <button onclick="GenerateLink()">Generete</button>
             <button onclick="OpenURL()">Open</button>
-            <h1 id="currentLink" style="font-size:20px; color:azure"></h1>
+            <h1 id="currentLink" style="font-size:20px; color:azure">Current Link: None</h1>
+            <!--TODO-->
+            <!--idk-->
+            <br>
             <h1 style="font-size: medium">Will work Soon™</h1>
             <button onclick="test()">[TEST] GET Request to current link</button>
             <img src="" id="GeneratedImage">
