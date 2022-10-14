@@ -83,7 +83,7 @@ button {
     background-color: rgba(255,255,255,0);
     color: #FFF;
     border-color: greenyellow;
-    border-radius: 10px;
+    border-radius: 15px;
     border: 2px solid #73AD21;
     padding: 10px;
     font-family: 'Work Sans';
@@ -93,12 +93,19 @@ button {
 button:hover {
     color:greenyellow;
     border-color: white;
-    background-color: rgba(112,128,144,0.2);
+    background-color: #555;
 }
 
 button:active {
-    background-color: rgba(255, 255, 255, 0.3);
-    border-radius: 15px;
+    background-color: #888;
+    border-radius: 10px;
+}
+
+table {
+    display: flex;
+    gap: 25px;
+    align-items: center;
+    resize: both;
 }
 
 div.ProjectDiv {
@@ -135,7 +142,6 @@ h2.homePage {
     width: 100%;
 }
 
-
 .li1 {
     font-size: larger;
     text-decoration: none;
@@ -158,12 +164,35 @@ h2.homePage {
     color: rgba(255,255,255,1)
 }
 
+.TopButtonIcon svg {
+    display: flex;
+    width: 80px;
+    height: 80px;
+
+    transform: rotate(-90deg);
+    transition: transform 2s ease-in-out
+}
+
+#TopButton {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 30px;
+    z-index: 99; 
+    color: white;
+    padding: 15px; 
+    font-size: 25px;
+    letter-spacing: 2px;
+}
+  
+#TopButton:hover {
+    background-color: #555;
+}
+
 /*webkit*/
 ::-webkit-scrollbar {
     width: 7px;
     color: #FFF;
-
-    transition: all ease-in-out 150ms;
 }
   
 ::-webkit-scrollbar-track {
@@ -171,6 +200,10 @@ h2.homePage {
 }
    
 ::-webkit-scrollbar-thumb {
-    background: #6649b8; 
+    background: rgb(89, 63, 158);
     border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: rgb(101, 71, 184); 
 }

@@ -39,3 +39,21 @@ function OpenURL(url) {
 function OpenProject1InBrowser() {
     window.open("https://github.com/rudynakodach/SteamCalc").focus();
 }
+
+let TopButton = document.getElementById("TopButton");
+
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 500 || document.documentElement.scrollTop > 500) {
+    TopButton.style.display = "block";
+    TopButton.style.animation = "anim1 150ms linear once";
+  } else {
+    TopButton.style.display = "none";
+  }
+}
+
+function topFunction() {
+  document.body.scrollTop = 0; //safari
+  document.documentElement.scrollTop = 0; //chrome / pc
+}
