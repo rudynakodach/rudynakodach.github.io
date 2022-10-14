@@ -4,6 +4,11 @@ body {
     font-size: 25px;
     background-color: #0d1117;
 }
+
+html {
+    scroll-behavior: smooth;
+}
+
 h2 {
     color: slategrey;
 }
@@ -155,6 +160,12 @@ h2.homePage {
     color:#000
 }
 
+.MainBodyDiv {
+    border-width: 20px;
+    border-color: #FFF;
+    border-radius: 15px;
+}
+
 .hiddenContent {
     color: rgba(0,0,0,0);
     transition: all ease-in-out 150ms;
@@ -168,9 +179,8 @@ h2.homePage {
     display: flex;
     width: 80px;
     height: 80px;
-
     transform: rotate(-90deg);
-    transition: transform 2s ease-in-out
+    transition: all 450ms ease-in-out
 }
 
 #TopButton {
@@ -185,6 +195,10 @@ h2.homePage {
     letter-spacing: 2px;
 }
   
+#TopButton:hover .TopButtonIcon svg {
+    transform: rotate(270deg);
+}
+
 #TopButton:hover {
     background-color: #555;
 }
