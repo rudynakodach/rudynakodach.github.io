@@ -13,9 +13,9 @@ h1 {
 }
 hr {
     display: block; 
-    height: 2px;
     border: 0; 
-    border-top: 2px solid rgb(80, 80, 80);
+    border-top: 2px solid greenyellow;
+    border-radius: 15px;
     padding: 0; 
 }
 header.navbarHeader {
