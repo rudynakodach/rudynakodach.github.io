@@ -19,104 +19,152 @@
         </nav>
     </header>
     <body>
-        <br>
-        <div>
-            <h2 class="homePage">Home Page</h2>
-            <hr style="color: burlywood; width: 25%;">
-            <h1 style="color: dimgray; text-align: center; font-size:23px;">My Projects: </h1>
+        <!--<nav class="navbar">
+            <ul class="navbar-nav">
+                <li class="logo">
+                    <a href="#" class="nav-link">
+                      <svg
+                        aria-hidden="true"
+                        focusable="false"
+                        data-prefix="fad"
+                        data-icon="angle-double-right"
+                        role="img"
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 448 512"
+                        class="svg-inline--fa fa-angle-double-right fa-w-14 fa-5x"
+                      >
+                        <g class="fa-group">
+                          <path
+                            fill="currentColor"
+                            d="M224 273L88.37 409a23.78 23.78 0 0 1-33.8 0L32 386.36a23.94 23.94 0 0 1 0-33.89l96.13-96.37L32 159.73a23.94 23.94 0 0 1 0-33.89l22.44-22.79a23.78 23.78 0 0 1 33.8 0L223.88 239a23.94 23.94 0 0 1 .1 34z"
+                            class="fa-secondary"
+                          ></path>
+                          <path
+                            fill="currentColor"
+                            d="M415.89 273L280.34 409a23.77 23.77 0 0 1-33.79 0L224 386.26a23.94 23.94 0 0 1 0-33.89L320.11 256l-96-96.47a23.94 23.94 0 0 1 0-33.89l22.52-22.59a23.77 23.77 0 0 1 33.79 0L416 239a24 24 0 0 1-.11 34z"
+                            class="fa-primary"
+                          ></path>
+                        </g>
+                      </svg>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <span class="link-text">Test 1</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <span class="link-text">Test 2</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <span class="link-text">Test 3</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    -->
+        <main>
+            <br><br>
+            <div>
+                <h2 class="homePage">Home Page</h2>
+                <hr style="color: burlywood; width: 25%;">
+                <h1 style="color: dimgray; text-align: center; font-size:23px;">My Projects: </h1>
+                <br>
+                <div id="Projects" style="text-align:center; margin-left: 25%; margin-right: 25%;">
+                    <table style="text-align: center;">
+                        <tbody style="text-align: center;margin-left:auto;margin-right:auto;">
+                            <tr style="margin-left: auto; margin-right: auto">
+                                <td>
+                                    <div class="ProjectDiv">
+                                        <h1 id="Project1Name" style="text-align:center; font-family:Work Sans; margin-left: 5px; margin-top: -20px; margin-right: 5px;">
+                                            <a style="color:#FFF; text-decoration: underline">prnt.sc gen</a>
+                                            <div style="margin-top: 20px;">
+                                                <img src="https://cdn.discordapp.com/attachments/1018186213234061404/1029436949175472169/unknown.png">
+                                            </div>
+                                            <div style="margin-top: 0px;">
+                                                <a style="color: dimgray">
+                                                    <h1 style="text-align: center; font-size: 32px;">Description</h1>
+                                                    <span style="font-size: large;" id="Project1description">
+                                                        <h1 style="text-align: left; font-size: 17px; margin-left: 15%; margin-right: 15%;">With this program you can generate image links to prnt.sc, view then inside the application and even download them.</h1>
+                                                        <h1 style="text-align: center; font-size: 22px; margin-bottom: -10px;"> Language: C#</h1>
+                                                    </span>
+                                                </a>
+                                            </div>
+                                            <h1 style="text-align: center; margin-top: -30px; margin-bottom: -10px;">
+                                                <button onclick="OpenProject1InBrowser()">Github</button> 
+                                                <button onclick="OpenURL('cdn.discordapp.com/attachments/1018186213234061404/1029500742375055360/prntsc_gen.zip')">Download</button>
+                                            </h1>
+                                        </h1>
+                                    </div>
+                                <br>
+                                <br>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="text-align: center; margin-left: -5px; margin-top: -10px;">
+                                    <div class="ProjectDiv" style="margin-right: 5px; margin-left: 5px; margin-top: 0px; text-align: center; font-family: 'Work Sans';">
+                                        <h1 style="font-family: Work Sans; text-decoration: underline; color: #FFF; margin-top: -10px;">Steam Calculator</h1>
+                                        <div>
+                                            <img src="https://cdn.discordapp.com/attachments/1018186213234061404/1029502829141950565/unknown.png" style="width: 100%; height: 100%;">
+                                        </div>
+                                        <span style="margin-top:auto; color:dimgray">
+                                            <h1 style="font-size:32px">Description</h1>
+                                            <h1 style="text-align: left; font-size: 17px;margin-left: 15%; margin-right: 15%;">
+                                                Using 'Steam Calculator' you can calculate your or somebody's else total time spent on playing games.
+                                            </h1>
+                                            <h1 style="text-align: center; font-size: 22px; color: dimgray">
+                                                Language: C#
+                                            </h1>
+                                            <h1 style="margin-top: -10px; margin-bottom: -10px">
+                                                <button onclick="OpenURL('github.com/rudynakodach/SteamCalc')">Github</button> 
+                                                <button onclick="OpenURL('github.com/rudynakodach/SteamCalc/releases/download/v2.0.1/SteamCalculator.zip')">Download</button>
+                                            </h1>
+                                        </span>
+                                    </div>
+                                    <br>
+                                    <br>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="text-align: center; margin-left: -5px; margin-top: -10px;">
+                                    <div class="ProjectDiv">
+                                        <h1 style="color:#FFF; text-decoration: underline; text-align: center; margin-left: -5px; margin-top: -10px;">Discord Bot</h1>
+                                        <div>
+                                            <img src="https://cdn.discordapp.com/attachments/1018186213234061404/1030222718248951818/unknown.png">
+                                        </div>
+                                        <span style="color: dimgray">
+                                            <h1 style="color:dimgray; text-align: center; font-size: 32px;">Description</h1>
+                                            <h1 style="text-align: left; font-family: 'Work Sans'; margin-left: 15%; margin-right: 15%; font-size:17px">With this Python application you can put your own bot to life! All it requires is a host and a bot. Remember to read the README.txt file!</h1>
+                                            <h1 style="font-size: 22px">
+                                                Language: Python
+                                            </h1>
+                                            <h1 style="margin-top: -10px; margin-bottom: -10px">
+                                                <button onclick="OpenURL('github.com/rudynakodach/discord_bot')">Github</button> 
+                                                <button onclick="OpenURL('github.com/rudynakodach/discord_bot/releases/download/v1/DiscordBot.zip')">Download</button>
+                                            </h1>
+                                        </span>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>  
+                    <br>
+                </div>
+            </div>
+            <div>
+                <h1 style="text-align: center">SoundTest</h1>
+                <div style="text-align: center">
+                    <button style="font-style:normal" onclick="play()">PlaySound</button>
+                </div>
+            </div>
             <br>
-            <div id="Projects" style="text-align:center; margin-left: 25%; margin-right: 25%;">
-                <table style="text-align: center;">
-                    <tbody style="text-align: center;margin-left:auto;margin-right:auto;">
-                        <tr style="margin-left: auto; margin-right: auto">
-                            <td>
-                                <div class="ProjectDiv">
-                                    <h1 id="Project1Name" style="text-align:center; font-family:Work Sans; margin-left: 5px; margin-top: -20px; margin-right: 5px;">
-                                        <a style="color:#FFF; text-decoration: underline">prnt.sc gen</a>
-                                        <div style="margin-top: 20px;">
-                                            <img src="https://cdn.discordapp.com/attachments/1018186213234061404/1029436949175472169/unknown.png">
-                                        </div>
-                                        <div style="margin-top: 0px;">
-                                            <a style="color: dimgray">
-                                                <h1 style="text-align: center; font-size: 32px;">Description</h1>
-                                                <span style="font-size: large;" id="Project1description">
-                                                    <h1 style="text-align: left; font-size: 17px; margin-left: 15%; margin-right: 15%;">With this program you can generate image links to prnt.sc, view then inside the application and even download them.</h1>
-                                                    <h1 style="text-align: center; font-size: 22px; margin-bottom: -10px;"> Language: C#</h1>
-                                                </span>
-                                            </a>
-                                        </div>
-                                        <h1 style="text-align: center; margin-top: -30px; margin-bottom: -10px;">
-                                            <button onclick="OpenProject1InBrowser()">Github</button> 
-                                            <button onclick="OpenURL('cdn.discordapp.com/attachments/1018186213234061404/1029500742375055360/prntsc_gen.zip')">Download</button>
-                                        </h1>
-                                    </h1>
-                                </div>
-                            <br>
-                            <br>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td style="text-align: center; margin-left: -5px; margin-top: -10px;">
-                                <div class="ProjectDiv" style="margin-right: 5px; margin-left: 5px; margin-top: 0px; text-align: center; font-family: 'Work Sans';">
-                                    <h1 style="font-family: Work Sans; text-decoration: underline; color: #FFF; margin-top: -10px;">Steam Calculator</h1>
-                                    <div>
-                                        <img src="https://cdn.discordapp.com/attachments/1018186213234061404/1029502829141950565/unknown.png" style="width: 100%; height: 100%;">
-                                    </div>
-                                    <span style="margin-top:auto; color:dimgray">
-                                        <h1 style="font-size:32px">Description</h1>
-                                        <h1 style="text-align: left; font-size: 17px;margin-left: 15%; margin-right: 15%;">
-                                            Using 'Steam Calculator' you can calculate your or somebody's else total time spent on playing games.
-                                        </h1>
-                                        <h1 style="text-align: center; font-size: 22px; color: dimgray">
-                                            Language: C#
-                                        </h1>
-                                        <h1 style="margin-top: -10px; margin-bottom: -10px">
-                                            <button onclick="OpenURL('github.com/rudynakodach/SteamCalc')">Github</button> 
-                                            <button onclick="OpenURL('github.com/rudynakodach/SteamCalc/releases/download/v2.0.1/SteamCalculator.zip')">Download</button>
-                                        </h1>
-                                    </span>
-                                </div>
-                                <br>
-                                <br>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td style="text-align: center; margin-left: -5px; margin-top: -10px;">
-                                <div class="ProjectDiv">
-                                    <h1 style="color:#FFF; text-decoration: underline; text-align: center; margin-left: -5px; margin-top: -10px;">Discord Bot</h1>
-                                    <div>
-                                        <img src="https://cdn.discordapp.com/attachments/1018186213234061404/1030222718248951818/unknown.png">
-                                    </div>
-                                    <span style="color: dimgray">
-                                        <h1 style="color:dimgray; text-align: center; font-size: 32px;">Description</h1>
-                                        <h1 style="text-align: left; font-family: 'Work Sans'; margin-left: 15%; margin-right: 15%; font-size:17px">With this Python application you can put your own bot to life! All it requires is a host and a bot. Remember to read the README.txt file!</h1>
-                                        <h1 style="font-size: 22px">
-                                            Language: Python
-                                        </h1>
-                                        <h1 style="margin-top: -10px; margin-bottom: -10px">
-                                            <button onclick="OpenURL('github.com/rudynakodach/discord_bot')">Github</button> 
-                                            <button onclick="OpenURL('github.com/rudynakodach/discord_bot/releases/download/v1/DiscordBot.zip')">Download</button>
-                                        </h1>
-                                    </span>
-
-
-                                </div>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>  
-            </div>
-        </div>
-        <div>
-            <h1 style="text-align: center">SoundTest</h1>
-            <div style="text-align: center">
-                <button style="font-style:normal" onclick="play()">PlaySound</button>
-            </div>
-        </div>
-        <br>
-        <br>
-        <!--thanks-->
-        <h1 style="text-align:center">❤️</h1>
+            <br>
+            <!--thanks-->
+            <h1 style="text-align:center; margin-left: 30%; margin-right: 30%;" class="hiddenContent">❤️</h1>
+        </main>
         <script src="script.js"></script>
     </body>
 </html>

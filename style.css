@@ -1,4 +1,5 @@
 body {
+    overflow: overlay;
     font-family: 'Roboto', serif;
     font-size: 25px;
     background-color: #0d1117;
@@ -13,8 +14,7 @@ h1 {
 }
 hr {
     display: block; 
-    border: 0; 
-    border-top: 2px solid greenyellow;
+    border-top: 5px solid greenyellow;
     border-radius: 15px;
     padding: 0; 
 }
@@ -40,6 +40,8 @@ nav li {
 }
 
 nav ul li a:hover {
+    letter-spacing: 3px;
+    font-size: 18px;
     color:white;
 }
 
@@ -48,7 +50,6 @@ nav ul li a {
     color:greenyellow;
     transition: 150ms;
 }
-
 
 nav a {
     color: greenyellow;
@@ -128,11 +129,48 @@ h2.homePage {
     text-align: center;
 }
 
+.navbarHeader {
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+
+
 .li1 {
+    font-size: larger;
+    text-decoration: none;
+    letter-spacing: 3px;
+    color: #FFF;
     padding-bottom: 2px;
 }
 
 .Project1description {
     font-family: 'Roboto';
     color:#000
+}
+
+.hiddenContent {
+    color: rgba(0,0,0,0);
+    transition: all ease-in-out 150ms;
+}
+
+.hiddenContent:hover {
+    color: rgba(255,255,255,1)
+}
+
+/*webkit*/
+::-webkit-scrollbar {
+    width: 7px;
+    color: #FFF;
+
+    transition: all ease-in-out 150ms;
+}
+  
+::-webkit-scrollbar-track {
+    background: #0d1117; 
+}
+   
+::-webkit-scrollbar-thumb {
+    background: #6649b8; 
+    border-radius: 5px;
 }
