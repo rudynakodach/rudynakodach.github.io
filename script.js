@@ -47,7 +47,6 @@ window.onscroll = function() {scrollFunction()};
 function scrollFunction() {
   if (document.body.scrollTop > 500 || document.documentElement.scrollTop > 500) {
     TopButton.style.display = "block";
-    TopButton.style.animation = "anim1 150ms linear once";
   } else {
     TopButton.style.display = "none";
   }

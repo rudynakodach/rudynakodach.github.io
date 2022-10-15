@@ -1,8 +1,9 @@
+
 body {
     overflow: overlay;
     font-family: 'Roboto', serif;
     font-size: 25px;
-    background-color: #0d1117;
+    background: linear-gradient(-45deg, #1b263b, #000);
 }
 
 html {
@@ -93,12 +94,14 @@ button {
     padding: 10px;
     font-family: 'Work Sans';
 
-    transition: all ease-in-out 100ms;
+    transition: all ease-in-out 150ms;
 }
 button:hover {
     color:greenyellow;
     border-color: white;
     background-color: #555;
+    font-size: large;
+    padding: 12px;
 }
 
 button:active {
@@ -114,9 +117,9 @@ table {
 }
 
 div.ProjectDiv {
-    border-radius: 25px;
+    border-radius: 30px;
     border: 2px solid darkslategrey;
-    padding: 25px;
+    padding: 30px;
 
     transition: all ease-in-out 250ms;
 }
@@ -131,6 +134,11 @@ nav ul li.discord {
     color: #7289da;
 }
 
+img {
+    border-radius: 25px;
+    box-shadow: #003049 5px 6px;
+}
+
 hr {
     color:#7289da;
     border-radius: 15px, 50px, 30px, 5px;
@@ -139,6 +147,16 @@ hr {
 h2.homePage {
     color:rgb(220,220,220);
     text-align: center;
+}
+
+.ProjectName {
+    color: #6c757d;
+    text-shadow: #003049 4px 5px;
+    letter-spacing: 3px;
+}
+
+.ProjectDescriptionTitle {
+    color: #b1a7a6;
 }
 
 .navbarHeader {
@@ -203,6 +221,24 @@ h2.homePage {
     background-color: #555;
 }
 
+.fa-primary {
+    color: #2a9d8f;
+    transition: color ease-in-out 250ms;
+}
+
+.fa-secondary {
+    color: #264653;
+    transition: color ease-in-out 250ms;
+}
+
+#TopButton:hover .fa-primary {
+    color: #ff7eee
+}
+
+#TopButton:hover .fa-secondary {
+    color: #df49a6
+}
+
 /*webkit*/
 ::-webkit-scrollbar {
     width: 7px;
@@ -219,5 +255,5 @@ h2.homePage {
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background: rgb(101, 71, 184); 
+    background: rgb(101, 71, 184);
 }
