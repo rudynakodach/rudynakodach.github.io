@@ -11,7 +11,7 @@ function GenerateLink()
     for (let index = 0; index < 6; index++) {
         currentLink += characters[RandomNumberGenerator(characters.length - 2)]
     }
-    completeLink = "https://prnt.sc/" + currentLink
+    completeLink = "https//www.prnt.sc/" + currentLink
     
     document.getElementById("currentLink").innerHTML = "Current Link: " + completeLink
     ActiveLink = completeLink
@@ -22,15 +22,14 @@ function OpenURL()
     window.open(completeLink, '_blank').focus()
 }
 
-function httpGet(theUrl)
-{
-    var xmlHttp = new XMLHttpRequest();
-    xmlHttp.open( "GET", theUrl, true);
-    xmlHttp.send( null );
-    return xmlHttp.responseText;
-}
+async function fetchAsync (url) {
+    let response = await fetch(url);
+    let data = await response.json();
+    console.log(data)
+    return data;
+  }
 
 function test()
 {
-    document.getElementById("test1").innerText = httpGet(completeLink)
+    document.getElementById("test1").innerText = fetchAsync(completeLink)
 }
