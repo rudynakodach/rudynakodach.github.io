@@ -3,7 +3,7 @@ body {
     overflow: overlay;
     font-family: 'Roboto', serif;
     font-size: 25px;
-    background: linear-gradient(-45deg, #1b263b, #000);
+    background: linear-gradient(-180deg, #403d39, #000);
 }
 
 html {
@@ -134,9 +134,10 @@ nav ul li.discord {
     color: #7289da;
 }
 
-img {
+.ProjectImage {
     border-radius: 25px;
     box-shadow: #003049 5px 6px;
+    transition: box-shadow ease-in-out 150ms;
 }
 
 hr {
@@ -150,13 +151,22 @@ h2.homePage {
 }
 
 .ProjectName {
-    color: #6c757d;
-    text-shadow: #003049 4px 5px;
+    color: #FFF;
+    text-shadow: #003049 3px 4px;
     letter-spacing: 3px;
+    transition: text-shadow ease-in-out 150ms;
+}
+
+div.ProjectDiv:hover .ProjectName {
+    text-shadow: #7289da 5px 6px;
+}
+
+div.ProjectDiv:hover .ProjectImage {
+    box-shadow: #7289da 8px 9px;
 }
 
 .ProjectDescriptionTitle {
-    color: #b1a7a6;
+    color: #bfc0c0;
 }
 
 .navbarHeader {
@@ -201,8 +211,8 @@ h2.homePage {
     transition: all 450ms ease-in-out
 }
 
+/*TopButton anims*/
 #TopButton {
-    display: none;
     position: fixed;
     bottom: 20px;
     right: 30px;
@@ -211,8 +221,18 @@ h2.homePage {
     padding: 15px; 
     font-size: 25px;
     letter-spacing: 2px;
+
+    transition: transform ease-in-out 150ms;
 }
-  
+
+#TopButton.hidden {
+    transform: translateX(125%);
+}
+
+#TopButton.displayed {
+    transform: translateX(0%);
+}
+
 #TopButton:hover .TopButtonIcon svg {
     transform: rotate(270deg);
 }
@@ -244,7 +264,7 @@ h2.homePage {
     width: 7px;
     color: #FFF;
 }
-  
+
 ::-webkit-scrollbar-track {
     background: #0d1117; 
 }

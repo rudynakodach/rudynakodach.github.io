@@ -46,9 +46,9 @@ window.onscroll = function() {scrollFunction()};
 
 function scrollFunction() {
   if (document.body.scrollTop > 500 || document.documentElement.scrollTop > 500) {
-    TopButton.style.display = "block";
+    TopButton.className = "displayed";
   } else {
-    TopButton.style.display = "none";
+    TopButton.className = "hidden";
   }
 }
 

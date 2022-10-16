@@ -1,4 +1,6 @@
 
+let ActiveLink = "";
+
 function RandomNumberGenerator(max) {
     return Math.floor(Math.random() * max);
 }
@@ -19,17 +21,17 @@ function GenerateLink()
 
 function OpenURL()
 {
-    window.open(completeLink, '_blank').focus()
+    window.open(ActiveLink, '_blank').focus()
 }
 
-async function fetchAsync (url) {
-    let response = await fetch(url);
-    let data = await response.json();
+async function fetchAsync () {
+    let response = await fetch(ActiveLink);
+    let data = await response;
     console.log(data)
     return data;
   }
 
 function test()
 {
-    document.getElementById("test1").innerText = fetchAsync(completeLink)
+    document.getElementById("test1").innerText = fetchAsync()
 }
