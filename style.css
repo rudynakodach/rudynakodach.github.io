@@ -1,9 +1,9 @@
 
 body {
     overflow: overlay;
-    font-family: 'Roboto', serif;
+    font-family: 'Open Sans', serif;
     font-size: 25px;
-    background: linear-gradient(-180deg, #403d39, #000);
+    background: linear-gradient(-180deg, #000, rgb(62, 59, 55));
 }
 
 html {
@@ -20,10 +20,19 @@ h1 {
 }
 hr {
     display: block; 
-    border-top: 5px solid greenyellow;
+    height: 5px;
+    background-image: linear-gradient(-90deg, coral, mediumvioletred);
     border-radius: 15px;
     padding: 0; 
+    margin-top: 2%;
+    margin-bottom: 2%;
 }
+
+hr {
+    color:#7289da;
+    border-radius: 15px, 50px, 30px, 5px;
+}
+
 header.navbarHeader {
     background-color: #484f58;
 }
@@ -106,7 +115,7 @@ button:hover {
 
 button:active {
     background-color: #888;
-    border-radius: 10px;
+    border-radius: 20px;
 }
 
 table {
@@ -140,13 +149,10 @@ nav ul li.discord {
     transition: box-shadow ease-in-out 150ms;
 }
 
-hr {
-    color:#7289da;
-    border-radius: 15px, 50px, 30px, 5px;
-}
+
 
 h2.homePage {
-    color:rgb(220,220,220);
+    color:#FFF;
     text-align: center;
 }
 
@@ -226,7 +232,7 @@ div.ProjectDiv:hover .ProjectImage {
 }
 
 #TopButton.hidden {
-    transform: translateX(125%);
+    transform: translateX(150%);
 }
 
 #TopButton.displayed {
