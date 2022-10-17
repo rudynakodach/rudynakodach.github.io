@@ -22,6 +22,7 @@ ul li {
 }
 
 .navbar li a {
+    font-size: 22px;
     color: greenyellow;
     text-align: center;
     text-decoration: none;

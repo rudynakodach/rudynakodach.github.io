@@ -16,8 +16,6 @@ body {
 }
 
 ul li {
-    margin-left: 10px;
-    margin-right: 10px;
     display: inline-block;
 }
 
@@ -25,6 +23,7 @@ ul li {
     color: greenyellow;
     text-align: center;
     text-decoration: none;
+    font-size: 22px;
 
     transition: all ease-in-out 150ms;
 }
