@@ -5,12 +5,14 @@ let TopButton = document.getElementById("TopButton");
 function scrollFunction() {
   if (document.body.scrollTop > 500 || document.documentElement.scrollTop > 500) {
     TopButton.className = "displayed";
-  } else {
+  } 
+  else 
+  {
     TopButton.className = "hidden";
   }
 }
 
 function topFunction() {
-    document.body.scrollTop = 0; //safari
-    document.documentElement.scrollTop = 0; //chrome / pc
-  }
+  document.body.scrollTop = 0; //safari
+  document.documentElement.scrollTop = 0; //chrome / pc
+}

@@ -10,6 +10,18 @@ body {
     background-color: #003049;
 }
 
+header div h1 {
+    font-family: 'Lato';
+    font-size: 22px;
+    color: #FFF;
+    font-size: 2vw;
+}
+
+header div h1 img {
+    width: 4vw;
+    height: 4vw;
+}
+
 .navbar ul {
     list-style: none;
     display: inline-block;
@@ -79,16 +91,9 @@ main:hover {
     border: 5px solid greenyellow;
 }
 
-header div p span{
-    color: #FFF;
-    vertical-align: middle;
-    font-size: larger;
-    font-family: 'Lato';
-}
-
 header div {
-    margin-left: 25%;
-    margin-right: 25%;
+    margin-left: 10%;
+    margin-right: 10%;
     border-radius: 20px;
     background: linear-gradient(-45deg, coral, mediumvioletred);
 }

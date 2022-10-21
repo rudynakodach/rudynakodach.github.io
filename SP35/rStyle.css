@@ -1,5 +1,16 @@
-:root {
-    scroll-behavior: smooth;
+
+
+
+body {
+    background-color: #2b2d42;
+}
+
+.navbar {
+    text-decoration: none;
+    font-family: 'Work Sans';
+    position: static;
+    border-radius: 15px;
+    background-color: #003049;
 }
 
 header div h1 {
@@ -12,18 +23,6 @@ header div h1 {
 header div h1 img {
     width: 4vw;
     height: 4vw;
-}
-
-body {
-    background-color: #2b2d42;
-}
-
-.navbar {
-    text-decoration: none;
-    font-family: 'Work Sans';
-    position: static;
-    border-radius: 15px;
-    background-color: #003049;
 }
 
 .navbar ul {
@@ -54,7 +53,6 @@ ul li {
 main {
     margin-left: 15%;
     margin-right: 15%;
-    margin-bottom: 15%;
     border-radius: 20px;
     border: 3px solid dimgray;
     display: grid;
@@ -74,7 +72,7 @@ hr {
     display: block; 
     height: 5px;
     border: 0px;
-    background-color: orangered;
+    background-color: #4cc9f0;
     border-radius: 15px;
     padding: 0; 
     margin-top: 2%;
@@ -84,14 +82,6 @@ hr {
 
 main:hover hr {
     width: 50%;
-}
-
-h2 {
-    font-size: 28px;
-    text-align: center;
-    color: #FFF;
-    font-family: 'Lato';
-    transition: all ease-in-out 150ms;
 }
 
 main:hover .pageTitle {
@@ -111,11 +101,13 @@ header div {
     background: linear-gradient(-45deg, coral, mediumvioletred);
 }
 
-.highlitedText {
-    color: red;
+h1 {
+    text-align: center;
+    color: #FFF;
+    font-family: 'Lato';
 }
 
-p {
+footer > p {
     text-align: center;
     font-size: larger;
     color: #FFF;
@@ -129,6 +121,14 @@ footer ul li a {
     list-style: none;
     color: #FFF;
     display: inline-block;
+}
+
+
+.feedContainer div p {
+    color: #FFF;
+    text-align: center;
+    font-family: 'Work Sans';
+    font-size: 20px;
 }
 
 .feedContainer div div {
@@ -149,29 +149,18 @@ footer ul li a {
     font-size: 26px;
 }
 
-.feedContainer div {
-    margin-left: 15%;
-    margin-right: 15%;
-}
-
-.feedContainer div p {
+.feedContainer div div p {
     font-family: 'Lato';
     color: #d9d9d9;
     text-align: justify;
     font-size: 20px;
 }
 
-.feedContainer div p.highlitedText {
-    color: red;
-}
-
 .feedContainer img {
-    margin-right: 15px;
-    margin-left: 15px;
-    margin-bottom: 20px;
-    margin-top: 20px;
-    width: 270px; 
-    height: 200px; 
+    margin-right: 25px;
+    margin-bottom: 25px;
+    width: 150px; 
+    height: 120px; 
     float:left;
     display: flex;
     box-shadow: #003049 5px 6px;
@@ -179,24 +168,7 @@ footer ul li a {
     transition: all ease-in-out 150ms;
 }
 
-.feedContainer img.alignToRight {
-    margin-right: 20px;
-    margin-bottom: 20px;
-    margin-top: 20px;
-    width: 270px; 
-    height: 200px; 
-    float: right;
-    display: flex;
-    box-shadow: #003049 5px 6px;
-    border-radius: 15px;
-    transition: all ease-in-out 150ms;
-}
-
-img.alignToRight:hover {
-    box-shadow: #7289da 8px 9px;
-}
-
-main img:hover {
+.feedContainer div div:hover img {
     box-shadow: #7289da 8px 9px;
 }
 
@@ -206,6 +178,14 @@ main img:hover {
 
 .feedContainer {
     margin-bottom: 50px;
+}
+
+#colorRed {
+    color: crimson;
+}
+
+#colorBlue {
+    color: skyblue;
 }
 
 button {
@@ -228,7 +208,7 @@ button:hover {
     color:greenyellow;
     border-color: white;
     background-color: #555;
-    font-size: large;
+    font-size: 16px;
     padding: 12px;
 }
 
@@ -236,60 +216,3 @@ button:active {
     background-color: #888;
     border-radius: 20px;
 }
-
-/*TopButton anims*/
-#TopButton {
-    position: fixed;
-    bottom: 20px;
-    right: 30px;
-    z-index: 99; 
-    color: white;
-    padding: 15px; 
-    font-size: 25px;
-    letter-spacing: 2px;
-
-    transition: transform ease-in-out 150ms;
-}
-
-#TopButton.hidden {
-    transform: translateX(150%);
-}
-
-#TopButton.displayed {
-    transform: translateX(0%);
-}
-
-#TopButton:hover .TopButtonIcon svg {
-    transform: rotate(270deg);
-}
-
-#TopButton:hover {
-    background-color: #555;
-}
-
-.fa-primary {
-    color: #2a9d8f;
-    transition: color ease-in-out 250ms;
-}
-
-.fa-secondary {
-    color: #264653;
-    transition: color ease-in-out 250ms;
-}
-
-#TopButton:hover .fa-primary {
-    color: #ff7eee
-}
-
-#TopButton:hover .fa-secondary {
-    color: #df49a6
-}
-
-.TopButtonIcon svg {
-    display: flex;
-    width: 80px;
-    height: 80px;
-    transform: rotate(-90deg);
-    transition: all 450ms ease-in-out
-}
-/*end*/
