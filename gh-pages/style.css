@@ -1,0 +1,285 @@
+
+body {
+    overflow: overlay;
+    font-family: 'Open Sans', serif;
+    font-size: 25px;
+    background: linear-gradient(-180deg, #000, rgb(62, 59, 55));
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+h2 {
+    color: slategrey;
+}
+
+h1 {
+    font-family: 'Work Sans';
+    color:dimgray;
+}
+hr {
+    display: block; 
+    height: 5px;
+    background-image: linear-gradient(-90deg, coral, mediumvioletred);
+    border-radius: 15px;
+    padding: 0; 
+    margin-top: 2%;
+    margin-bottom: 2%;
+}
+
+hr {
+    color:#7289da;
+    border-radius: 15px, 50px, 30px, 5px;
+}
+
+header.navbarHeader {
+    background-color: #484f58;
+}
+
+nav ul {
+    margin:0;
+    padding: 0;
+    list-style: none;
+}
+
+nav li {
+    display: inline-block;
+    margin-left: 90px;
+    padding-top: 25px;
+    padding-bottom: 25px;
+    font-size: 16px;
+    font-family: 'Work Sans';
+
+    position: relative;
+}
+
+nav ul li a:hover {
+    letter-spacing: 3px;
+    font-size: 18px;
+    color:white;
+}
+
+nav ul li a {
+    font-family: 'Work Sans';
+    color:greenyellow;
+    transition: 150ms;
+}
+
+nav a {
+    color: greenyellow;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+nav a::before {
+    content: '';
+    display: block;
+    height: 5px;
+    width: 0%;
+    background-color: greenyellow;
+
+    position: absolute;
+    top: 0;
+
+    transition: all ease-in-out 250ms;
+}
+
+nav a:hover::before {
+    width: 100%;
+}
+
+button {
+    padding-top: 2px;
+    padding-bottom: 2px;
+    padding-left: 2px;
+    padding-right: 2px;
+    border-color: rgba(0, 0, 0, 0);
+    background-color: rgba(255,255,255,0);
+    color: #FFF;
+    border-color: greenyellow;
+    border-radius: 15px;
+    border: 2px solid #73AD21;
+    padding: 10px;
+    font-family: 'Work Sans';
+
+    transition: all ease-in-out 150ms;
+}
+button:hover {
+    color:greenyellow;
+    border-color: white;
+    background-color: #555;
+    font-size: large;
+    padding: 12px;
+}
+
+button:active {
+    background-color: #888;
+    border-radius: 20px;
+}
+
+table {
+    display: flex;
+    gap: 25px;
+    align-items: center;
+    resize: both;
+}
+
+div.ProjectDiv {
+    border-radius: 30px;
+    border: 2px solid darkslategrey;
+    padding: 30px;
+
+    transition: all ease-in-out 250ms;
+}
+
+div.ProjectDiv:hover {
+    border: 4px solid #73AD21;
+}
+
+nav ul li.discord {
+    float: right;
+    margin-right: 25px;
+    color: #7289da;
+}
+
+.ProjectImage {
+    border-radius: 25px;
+    box-shadow: #003049 5px 6px;
+    transition: box-shadow ease-in-out 150ms;
+}
+
+
+
+h2.homePage {
+    color:#FFF;
+    text-align: center;
+}
+
+.ProjectName {
+    color: #FFF;
+    text-shadow: #003049 3px 4px;
+    letter-spacing: 3px;
+    transition: text-shadow ease-in-out 150ms;
+}
+
+div.ProjectDiv:hover .ProjectName {
+    text-shadow: #7289da 5px 6px;
+}
+
+div.ProjectDiv:hover .ProjectImage {
+    box-shadow: #7289da 8px 9px;
+}
+
+.ProjectDescriptionTitle {
+    color: #bfc0c0;
+}
+
+.navbarHeader {
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+
+.li1 {
+    font-size: larger;
+    text-decoration: none;
+    letter-spacing: 3px;
+    color: #FFF;
+    padding-bottom: 2px;
+}
+
+.Project1description {
+    font-family: 'Roboto';
+    color:#000
+}
+
+.MainBodyDiv {
+    border-width: 20px;
+    border-color: #FFF;
+    border-radius: 15px;
+}
+
+.hiddenContent {
+    color: rgba(0,0,0,0);
+    transition: all ease-in-out 150ms;
+}
+
+.hiddenContent:hover {
+    color: rgba(255,255,255,1)
+}
+
+.TopButtonIcon svg {
+    display: flex;
+    width: 80px;
+    height: 80px;
+    transform: rotate(-90deg);
+    transition: all 450ms ease-in-out
+}
+
+/*TopButton anims*/
+#TopButton {
+    position: fixed;
+    bottom: 20px;
+    right: 30px;
+    z-index: 99; 
+    color: white;
+    padding: 15px; 
+    font-size: 25px;
+    letter-spacing: 2px;
+
+    transition: transform ease-in-out 150ms;
+}
+
+#TopButton.hidden {
+    transform: translateX(150%);
+}
+
+#TopButton.displayed {
+    transform: translateX(0%);
+}
+
+#TopButton:hover .TopButtonIcon svg {
+    transform: rotate(270deg);
+}
+
+#TopButton:hover {
+    background-color: #555;
+}
+
+.fa-primary {
+    color: #2a9d8f;
+    transition: color ease-in-out 250ms;
+}
+
+.fa-secondary {
+    color: #264653;
+    transition: color ease-in-out 250ms;
+}
+
+#TopButton:hover .fa-primary {
+    color: #ff7eee
+}
+
+#TopButton:hover .fa-secondary {
+    color: #df49a6
+}
+
+/*webkit*/
+::-webkit-scrollbar {
+    width: 7px;
+    color: #FFF;
+}
+
+::-webkit-scrollbar-track {
+    background: #0d1117; 
+}
+   
+::-webkit-scrollbar-thumb {
+    background: rgb(89, 63, 158);
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: rgb(101, 71, 184);
+}
