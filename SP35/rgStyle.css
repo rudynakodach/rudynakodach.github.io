@@ -1,0 +1,201 @@
+#colorRed {
+    color: crimson;
+}
+
+#colorBlue {
+    color: skyblue;
+}
+
+button {
+    padding-top: 2px;
+    padding-bottom: 2px;
+    padding-left: 2px;
+    padding-right: 2px;
+    border-color: rgba(0, 0, 0, 0);
+    background-color: rgba(255,255,255,0);
+    color: #FFF;
+    border-color: greenyellow;
+    border-radius: 15px;
+    border: 2px solid #73AD21;
+    padding: 10px;
+    font-family: 'Work Sans';
+
+    transition: all ease-in-out 150ms;
+}
+button:hover {
+    color:greenyellow;
+    border-color: white;
+    background-color: #555;
+    font-size: 16px;
+    padding: 12px;
+}
+
+button:active {
+    background-color: #888;
+    border-radius: 20px;
+}
+
+body {
+    background-color: #2b2d42;
+}
+
+.navbar {
+    text-decoration: none;
+    font-family: 'Work Sans';
+    position: static;
+    border-radius: 15px;
+    background-color: #003049;
+}
+
+header div h1 {
+    font-family: 'Lato';
+    font-size: 22px;
+    color: #FFF;
+    font-size: 2vw;
+}
+
+header div h1 img {
+    width: 4vw;
+    height: 4vw;
+}
+
+.navbar ul {
+    list-style: none;
+    display: inline-block;
+}
+
+ul li {
+    display: inline-block;
+    padding: 5px;
+}
+
+.navbar li a {
+    color: greenyellow;
+    text-align: center;
+    text-decoration: none;
+    font-size: 22px;
+
+    transition: all ease-in-out 150ms;
+}
+
+.navbar li a:hover {
+    color: white;
+    letter-spacing: 2px;
+    font-size: 20px;
+}
+
+main {
+    margin-left: 15%;
+    margin-right: 15%;
+    border-radius: 20px;
+    border: 3px solid dimgray;
+    display: grid;
+    transition: border ease-in-out 150ms;
+}
+
+.pageTitle {
+    color: #8d99ae;
+    font-family: 'Work Sans';
+    text-align: center;
+    font-size: 30px;
+    
+    transition: all ease-in-out 250ms;
+}
+
+hr {
+    display: block; 
+    height: 5px;
+    border: 0px;
+    background-color: #4cc9f0;
+    border-radius: 15px;
+    padding: 0; 
+    margin-top: 2%;
+    margin-bottom: 2%;
+    transition: width ease-in-out 150ms;
+}
+
+main:hover hr {
+    width: 50%;
+}
+
+main:hover .pageTitle {
+    letter-spacing: 5px;
+    font-size: 40px;
+    color: #FFF;
+}
+
+main:hover {
+    border: 5px solid greenyellow;
+}
+
+header div {
+    margin-left: 10%;
+    margin-right: 10%;
+    border-radius: 20px;
+    background: linear-gradient(-45deg, coral, mediumvioletred);
+}
+
+p {
+    text-align: center;
+    font-size: larger;
+    color: #FFF;
+    font-family: 'Lato';
+}
+
+footer ul li a {
+    font-family: 'Roboto Slab';
+    font-size: 20px;
+    text-decoration: none;
+    list-style: none;
+    color: #FFF;
+    display: inline-block;
+}
+
+.feedContainer div div {
+    padding: 25px;
+    border-radius: 25px;
+    margin-left: 15%;
+    margin-right: 15%;
+    margin-bottom: 50px;
+    border: 3px solid dimgray;
+
+    transition: all ease-in-out 150ms
+}
+
+.feedContainer div div h1 {
+    font-family: 'Work Sans';
+    color: #FFF;
+    text-align: center;
+    font-size: 26px;
+}
+
+.feedContainer div div p {
+    font-family: 'Lato';
+    color: #d9d9d9;
+    text-align: justify;
+    font-size: 20px;
+}
+
+.feedContainer img {
+    margin-right: 25px;
+    margin-bottom: 25px;
+    width: 150px; 
+    height: 120px; 
+    float:left;
+    display: flex;
+    box-shadow: #003049 5px 6px;
+    border-radius: 15px;
+    transition: all ease-in-out 150ms;
+}
+
+.feedContainer div div:hover img {
+    box-shadow: #7289da 8px 9px;
+}
+
+.feedContainer div div:hover {
+    border: 5px solid #ffca3a
+}
+
+.feedContainer {
+    margin-bottom: 50px;
+}
