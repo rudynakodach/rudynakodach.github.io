@@ -2,30 +2,6 @@ body {
     background-color: #2b2d42;
 }
 
-main img {
-    border: 4px solid gray;
-    object-fit: fill;
-    display: flexbox;
-    margin-right: 25px;
-    margin-bottom: 25px;
-    width: 13vw; 
-    height: 11vw; 
-    float:left;
-    display: flex;
-    box-shadow: #4a4e69 5px 6px;
-    border-radius: 15px;
-    transition: all ease-in-out 150ms;
-}
-
-main img:hover {
-    border: 4px solid greenyellow;
-    box-shadow: #7289da 9px 10px;
-}
-
-html {
-    scroll-behavior: smooth;
-}
-
 .navbar {
     text-decoration: none;
     font-family: 'Work Sans';
@@ -163,6 +139,18 @@ footer ul li a {
     font-size: 20px;
 }
 
+.feedContainer img {
+    margin-right: 25px;
+    margin-bottom: 25px;
+    width: 150px; 
+    height: 120px; 
+    float:left;
+    display: flex;
+    box-shadow: #003049 5px 6px;
+    border-radius: 15px;
+    transition: all ease-in-out 150ms;
+}
+
 .feedContainer div div:hover img {
     box-shadow: #7289da 8px 9px;
 }
@@ -175,11 +163,9 @@ footer ul li a {
     margin-bottom: 50px;
 }
 
+
 button {
-    padding-top: 2px;
-    padding-bottom: 2px;
-    padding-left: 2px;
-    padding-right: 2px;
+    padding: 5px;
     border-color: rgba(0, 0, 0, 0);
     background-color: rgba(255,255,255,0);
     color: #FFF;
@@ -191,7 +177,6 @@ button {
 
     transition: all ease-in-out 150ms;
 }
-
 button:hover {
     color:greenyellow;
     border-color: white;
@@ -204,60 +189,3 @@ button:active {
     background-color: #888;
     border-radius: 20px;
 }
-
-/*TopButton anims n' styling*/
-#TopButton {
-    position: fixed;
-    bottom: 20px;
-    right: 30px;
-    z-index: 99; 
-    color: white;
-    padding: 15px; 
-    font-size: 25px;
-    letter-spacing: 2px;
-
-    transition: transform ease-in-out 150ms;
-}
-
-#TopButton.hidden {
-    transform: translateX(150%);
-}
-
-#TopButton.displayed {
-    transform: translateX(0%);
-}
-
-#TopButton:hover .TopButtonIcon svg {
-    transform: rotate(270deg);
-}
-
-#TopButton:hover {
-    background-color: #555;
-}
-
-.fa-primary {
-    color: #2a9d8f;
-    transition: color ease-in-out 250ms;
-}
-
-.fa-secondary {
-    color: #264653;
-    transition: color ease-in-out 250ms;
-}
-
-#TopButton:hover .fa-primary {
-    color: #ff7eee
-}
-
-#TopButton:hover .fa-secondary {
-    color: #df49a6
-}
-
-.TopButtonIcon svg {
-    display: flex;
-    width: 80px;
-    height: 80px;
-    transform: rotate(-90deg);
-    transition: all 450ms ease-in-out
-}
-/*end*/
