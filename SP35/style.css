@@ -162,3 +162,40 @@ footer ul li a {
 .feedContainer {
     margin-bottom: 50px;
 }
+
+button {
+    padding-top: 2px;
+    padding-bottom: 2px;
+    padding-left: 2px;
+    padding-right: 2px;
+    border-color: rgba(0, 0, 0, 0);
+    background-color: rgba(255,255,255,0);
+    color: #FFF;
+    border-color: greenyellow;
+    border-radius: 15px;
+    border: 2px solid #73AD21;
+    padding: 10px;
+    font-family: 'Work Sans';
+
+    transition: all ease-in-out 150ms;
+}
+button:hover {
+    color:greenyellow;
+    border-color: white;
+    background-color: #555;
+    font-size: 16px;
+    padding: 12px;
+}
+
+button:active {
+    background-color: #888;
+    border-radius: 20px;
+}
+
+#incomplete {
+    fill: coral;
+}
+
+#completed {
+    fill:lawngreen;
+}
