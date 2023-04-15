@@ -1,0 +1,14 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+div.info {
+    position: fixed;
+    height: 50vw;
+    width: 50vw;
+    top: 25%;
+    left: 25%;
+    
+    text-align: center;
+}
