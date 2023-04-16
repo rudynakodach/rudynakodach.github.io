@@ -60,6 +60,8 @@ directionalLight.castShadow = true;
 
 camera.position.set(0, 4, 6)
 
+const xAxis = new THREE.Vector3(1, 0, 0);
+
 function animate() {
     requestAnimationFrame(animate);
     if (isMoving) {
@@ -67,8 +69,10 @@ function animate() {
         rotationSpeed.x *= .75;
         rotationSpeed.y *= .75;
 
-        // apply the rotationSpeed to the camera's rotation 
-        camera.quaternion.add(rotationSpeed.x, rotationSpeed.y)
+        camera.rotateOnAxis(xAxis, rotationSpeed.x); // rotate the camera around its local X-axis
+        camera.rotateY(rotationSpeed.y);
+
+        console.log(camera.rotation)
 
         // calculate relative movement based on camera direction
         let movement = new THREE.Vector3();
