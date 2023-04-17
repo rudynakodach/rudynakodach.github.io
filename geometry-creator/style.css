@@ -10,13 +10,19 @@ body.ch {
     cursor: none;
 }
 
+div[hide] {
+    pointer-events: none;
+    display: none;
+    content: none;
+}
+
 #ui-overlay {
+    pointer-events: none;
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    pointer-events: none;
 }
 
 div#objectMenu {
@@ -48,6 +54,12 @@ div#optionContainer {
 }
 
 h1#optionHeader {
+    pointer-events: none;
+    font-size: smaller;
+    text-align: center;
+}
+
+div#optionFields {
     text-align: center;
 }
 
@@ -59,10 +71,18 @@ h1#menuTitle {
     letter-spacing: 5px;
     padding-left: 15px;
     padding-right: 15px;
+    /* Safari */    
+    -webkit-user-select: none;
+    /* Firefox */    
+    -moz-user-select: none;
+    /* IE 10 and later */    
+    -ms-user-select: none;
+    /* Standard syntax */    
+    user-select: none;
 }
 
 input[type=number] {
-    width: 50px;
+    width: 30px;
     height: 20px;
     text-align: center;
     border: none;
@@ -81,4 +101,20 @@ input[type=number]:focus {
     outline: none;
     border: none;
     background: #c7c7c7;
+}
+
+select {
+    transition: background-color 250ms ease-out;
+    background-color: #dbdada;
+}
+
+select:focus {
+    outline: none;
+    border: none;
+    background: #c7c7c7;
+}
+
+.hide {
+    visibility: hidden;
+    display: none;
 }

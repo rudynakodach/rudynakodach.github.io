@@ -1,0 +1,14 @@
+.color-picker {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.color-preview {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    vertical-align: middle;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-right: 10px;
+}

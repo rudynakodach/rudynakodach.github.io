@@ -1,21 +1,64 @@
 <html lang="en">
 <head>
+    <script async src="https://unpkg.com/es-module-shims@1.6.3/dist/es-module-shims.js"></script>
+    
+    <script type="importmap">
+        {
+            "imports": {
+              "three": "https://unpkg.com/three@v0.149.0/build/three.module.js",
+              "three/addons/": "https://unpkg.com/three@v0.149.0/examples/jsm/"
+            }
+        }
+    </script>
+
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./colorpicker.css">
     <script src="./main.js" nonce type="module"></script>
-    <!-- <script src="./menu.js" nonce type="module"></script> -->
+    <script src="./draggable.js" nonce type="module"></script>
+
+
+
     <title>.</title>
 </head>
 <body>
     <div id="ui-overlay">
-        <div id="objectMenu">
+        <div id="objectMenu" class="" object-info draggable="true"> 
             <h1 id="menuTitle">OBJECT INFO</h1>
             <hr>
             <div id="optionContainer">
                 <h1 id="optionHeader">SIZE</h1>
-                X: <input x type="number" min="1" value="1"> Y: <input y type="number" min="1" value="1"> Z: <input z type="number" min="1" value="1">
+                <div id="optionFields" draggable="false">
+                    X: <input size x type="number" min="1" value="1"> Y: <input size y type="number" min="1" value="1"> Z: <input size z type="number" min="1" value="1">
+                </div>
+            </div>
+            <div id="optionContainer">
+                <h1 id="optionHeader">POSITION</h1>
+                <div id="optionFields">
+                    X: <input position x type="number" min="1" value="0"> Y: <input position y type="number" min="1" value="0"> Z: <input position z type="number" min="1" value="0">
+                </div>
+            </div>
+        </div>
+        <div id="objectMenu" material-info class="hide" draggable="true">
+            <h1 id="menuTitle">MATERIAL</h1>
+            <hr>
+            <div id="optionContainer">
+                <h1 id="optionHeader">COLOR</h1>
+                    <input class="color-picker" type="color" id="color-picker" name="color-picker" value="#ffffff">
+                    <div class="color-preview" id="color-preview"></div>
+            </div>
+            <div id="optionContainer">
+                <h1 id="optionHeader">TYPE</h1>
+                <select name="material-type" id="mat-type">
+                    <option value="phong">Phong Material</option> 
+                    <option value="basic">Basic Material</option>
+                    <option value="toon">Toon Material</option>
+                    <option value="normal">Normal Material</option>
+                    <option value="labmert">Lambert Material</option>
+                    <option value="depth">Depth Material</option>
+                </select>
             </div>
         </div>
     </div>
