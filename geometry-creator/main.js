@@ -4,10 +4,10 @@ import { FXAAShader } from 'three/addons/shaders/FXAAShader.js';
 import { RenderPass } from 'three/addons/postprocessing/RenderPass.js';
 import { ShaderPass } from 'three/addons/postprocessing/ShaderPass.js';
 import { OutlinePass } from 'three/addons/postprocessing/OutlinePass.js';
-import { EffectComposer } from 'three/addons/postprocessing/EffectComposer.js'
+import { EffectComposer } from 'three/addons/postprocessing/EffectComposer.js'; 
+import { TransformControls } from 'three/addons/controls/TransformControls.js';
 
 var selectedObject;
-const objectHoverRaycaster = new THREE.Raycaster();
 const objectSelectRaycaster = new THREE.Raycaster();
 const scene = new THREE.Scene();
 var stats = new Stats();
@@ -16,14 +16,41 @@ document.body.appendChild(stats.dom)
 const renderer = new THREE.WebGL1Renderer();
 renderer.setSize(window.innerWidth, window.innerHeight);
 
+const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 2500);
+scene.add(camera);
+
+
+
 const canvas = renderer.domElement;
 document.body.appendChild(canvas);
 canvas.setAttribute("draggable", "false")
 
-let composer = new EffectComposer(renderer);
+const transformControl = new TransformControls(camera, canvas)
+scene.add(transformControl)
 
-const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-scene.add(camera);
+transformControl.translateControls = true;
+transformControl.rotateControls = true;
+
+let composer = new EffectComposer(renderer); //FF4514
+//const pattern = "https://raw.githubusercontent.com/mrdoob/three.js/master/examples/textures/tri_pattern.jpg"
+
+const renderPass = new RenderPass(scene, camera);
+composer.addPass(renderPass);
+
+let selectedObjectPass = new OutlinePass(new THREE.Vector2(window.innerWidth, window.innerHeight), scene, camera)
+selectedObjectPass.edgeStrength = 3;
+selectedObjectPass.edgeGlow = 1;
+selectedObjectPass.edgeThickness = 1;
+selectedObjectPass.pulsePeriod = 0;
+selectedObjectPass.visibleEdgeColor.set("#ffffff")
+selectedObjectPass.hiddenEdgeColor.set("#ff4515")
+composer.addPass(selectedObjectPass)
+ 
+let effectFXAA = new ShaderPass(FXAAShader);
+effectFXAA.uniforms['resolution'].value.set(1 / window.innerWidth, 1 / window.innerHeight);
+composer.addPass(effectFXAA);
+
+var cameraSpeed = 0.05;
 
 var isMoving = false;
 var movementKeysActive = {
@@ -35,32 +62,20 @@ var movementKeysActive = {
     e: false
 }
 
-const xMaterial = new THREE.LineBasicMaterial({ color: 0xf63652 });
-const xPoints = [];
-xPoints.push(new THREE.Vector3( -1000, 0, 0));
-xPoints.push(new THREE.Vector3(  1000, 0, 0));
+function createLine(color, from, to) {
+    const material = new THREE.LineBasicMaterial({ color });
+    const geometry = new THREE.BufferGeometry().setFromPoints([from, to]); 
+    const line = new THREE.Line(geometry, material);
+    return line;
+}
 
-const xGeometry = new THREE.BufferGeometry().setFromPoints(xPoints);
-const xLine = new THREE.Line(xGeometry, xMaterial);
-scene.add(xLine)
+const xLine = createLine(0xf63652, new THREE.Vector3(-10000, 0, 0), new THREE.Vector3(10000, 0, 0));
+const yLine = createLine(0x2f84e3, new THREE.Vector3(0, -10000, 0), new THREE.Vector3(0, 10000, 0));
+const zLine = createLine(0x70a41c, new THREE.Vector3(0, 0, -10000), new THREE.Vector3(0, 0, 10000));
 
-const yMaterial = new THREE.LineBasicMaterial({ color: 0x2f84e3 });
-const yPoints = [];
-yPoints.push(new THREE.Vector3(0, -1000, 0));
-yPoints.push(new THREE.Vector3(0,  1000, 0));
+const staticElements = [xLine, yLine, zLine]
 
-const yGeometry = new THREE.BufferGeometry().setFromPoints(yPoints);
-const yLine = new THREE.Line(yGeometry, yMaterial);
-scene.add(yLine)
-
-const zMaterial = new THREE.LineBasicMaterial({ color: 0x70a41c });
-const zPoints = [];
-zPoints.push(new THREE.Vector3(0, 0, -1000));
-zPoints.push(new THREE.Vector3(0, 0,  1000));
-
-const zGeometry = new THREE.BufferGeometry().setFromPoints(zPoints);
-const zLine = new THREE.Line(zGeometry, zMaterial);
-scene.add(zLine)
+scene.add(xLine, yLine, zLine);
 
 let geometry = new THREE.BoxGeometry(1, 1, 1);
 let material = new THREE.MeshPhongMaterial({ color: 0xffffff, wireframe: false })
@@ -97,55 +112,56 @@ function animate() {
         // calculate relative movement based on camera direction
         let movement = new THREE.Vector3();
         if (movementKeysActive['w']) {
-            movement.z -= 0.05;
+            movement.z -= cameraSpeed;
         }
         if (movementKeysActive['s']) {
-            movement.z += 0.05;
+            movement.z += cameraSpeed;
         }
         if (movementKeysActive['a']) {
-            movement.x -= 0.05;
+            movement.x -= cameraSpeed;
         }
         if (movementKeysActive['d']) {
-            movement.x += 0.05;
+            movement.x += cameraSpeed;
         }
         if (movementKeysActive['q']) {
-            movement.y -= 0.05;
+            movement.y -= cameraSpeed;
         }
         if (movementKeysActive['e']) {
-            movement.y += 0.05;
+            movement.y += cameraSpeed;
         }
 
         // transform movement to camera space and apply to camera position
         movement.applyQuaternion(camera.quaternion);
         camera.position.add(movement);
     }
-    composer.render();
+    composer.render(); 
     stats.end();
 }
 animate();
 
 canvas.addEventListener("mousedown", (event) => { 
-    objectSelectRaycaster.setFromCamera(mouse, camera);
-    const intersects = objectSelectRaycaster.intersectObject(scene, true)
-
-    if(intersects.length > 0) {
-        selectedObject = intersects[0].object;
-        selectedObjectPass.hoveredObjects = selectedObject;
-        addhoveredObjects([])
-        setGuiInfo();
-    } else {
-        selectedObjectPass.hoveredObjects = null;
-    }
-
-    if (event.button == 0) {
+    if (event.button == 2) {
         isMoving = true;
         lastMousePosition = {x: event.clientX, y: event.clientY};
         document.body.classList.add("ch");
+    } else if(event.button == 0) { 
+        objectSelectRaycaster.setFromCamera(mouse, camera);
+        const intersects = objectSelectRaycaster.intersectObjects(scene.children, true);
+        if (intersects.length > 0) {
+            intersects.forEach((intersect, i) => {
+                const obj = intersect.object;
+                if (!staticElements.includes(obj)) {
+                    selectObject(obj)
+                    setGuiInfo();
+                    return;
+                }
+            });
+        }
     }
 })
 
 canvas.addEventListener("mouseup", (event) => {
-    if (event.button == 0) {
+    if (event.button == 2) {
         isMoving = false;
         document.body.classList.remove("ch")
     }
@@ -161,7 +177,6 @@ canvas.addEventListener("mousemove", (event) => {
     mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
     mouse.y = - (event.clientY / window.innerHeight) * 2 + 1;
 
-    checkIntersections();
     // check if isMoving is true
     if (isMoving) {
         // calculate the change in mouse position since the last frame
@@ -185,8 +200,14 @@ canvas.addEventListener("mousemove", (event) => {
     }
 });
 
+canvas.addEventListener("contextmenu", (e) => {
+    e.preventDefault();
+})
 
 window.addEventListener("keydown", (event) => {
+    if(event.key.toLowerCase() == "shift") {
+        cameraSpeed = .1;
+    }
 
     if(movementKeysActive.hasOwnProperty(event.key.toLowerCase())) {
         movementKeysActive[event.key.toLowerCase()] = true;
@@ -198,75 +219,86 @@ window.addEventListener("keydown", (event) => {
         } else if(event.key == "p") {
             selectedObject.material.wireframe = !selectedObject.material.wireframe
         } else if(event.key == "n") {
-            let bg = new THREE.BoxGeometry(1, 1, 1);
-            let mt = new THREE.MeshPhongMaterial({ color: 0xffffff });
-            let elem = new THREE.Mesh(bg, mt);
-            scene.add(elem);
+            const element = document.querySelector("div#objectCreateMenu");  
+
+            element.style.left = event.clientX + "px";
+            element.style.top = event.clientY + "px";
+
+            if(element.classList.contains("hide")) {
+                element.classList.remove("hide")
+            } else {
+                element.classList.add("hide")
+            }
+        } else if(event.key == "x") { 
+            scene.remove(selectedObject)
         }
     }
 })
  
 window.addEventListener("keyup", (event) => {
+    if(event.key.toLowerCase() == "shift") {
+        cameraSpeed = .05;
+    }
     if (movementKeysActive.hasOwnProperty(event.key.toLowerCase())) {
         movementKeysActive[event.key.toLowerCase()] = false;
         console.log(`${event.key}: ` + movementKeysActive[event.key.toLowerCase()])
     }
 })
 
+function addSizeChangeListener(inputElem, axis) {
+    inputElem.addEventListener("input", (e) => {
+        const value = parseFloat(e.target.value);
+        if (!isNaN(value)) {
+            selectedObject.scale[axis] = value;
+        }
+    });
+}
+
 const xSizeInput = document.body.querySelector("input[x][size]");
-const ySizeInput = document.body.querySelector("input[y][size]")
-const zSizeInput = document.body.querySelector("input[z][size]")
+const ySizeInput = document.body.querySelector("input[y][size]");
+const zSizeInput = document.body.querySelector("input[z][size]");
 
-xSizeInput.addEventListener("input", (e) => {
-    let newX = parseFloat(e.target.value);
-    newX = Math.max(Math.abs(newX), .001)
-    if(!isNaN(newX)) {
-        selectedObject.scale.x = newX
-    }
-})
+addSizeChangeListener(xSizeInput, "x");
+addSizeChangeListener(ySizeInput, "y");
+addSizeChangeListener(zSizeInput, "z");
 
-ySizeInput.addEventListener("input", (e) => {
-    let newY = parseFloat(e.target.value);
-    if (!isNaN(newY)) {
-        newY = Math.max(Math.abs(newY), .001)
-        selectedObject.scale.y = newY
-    }
-})
-
-zSizeInput.addEventListener("input", (e) => {
-    let newZ = parseFloat(e.target.value);
-    if (!isNaN(newZ)) {
-        newZ = Math.max(Math.abs(newZ), .001)
-        selectedObject.scale.z = newZ
-    }
-})
+function addPositionChangeListener(inputElem, axis) {
+    inputElem.addEventListener("input", (e) => {
+        let newPos = parseFloat(e.target.value);
+        if (!isNaN(newPos)) {
+            selectedObject.position[axis] = newPos;
+        }
+    });
+}
 
 const xPosInput = document.body.querySelector("input[x][position]");
-const yPosInput = document.body.querySelector("input[y][position]")
-const zPosInput = document.body.querySelector("input[z][position]")
+const yPosInput = document.body.querySelector("input[y][position]");
+const zPosInput = document.body.querySelector("input[z][position]");
 
-xPosInput.addEventListener("input", (e) => {
-    let newX = parseFloat(e.target.value);
-    if (!isNaN(newX)) {
-        selectedObject.position.x = newX
-    }
-})
+addPositionChangeListener(xPosInput, 'x');
+addPositionChangeListener(yPosInput, 'y');
+addPositionChangeListener(zPosInput, 'z');
 
-yPosInput.addEventListener("input", (e) => {
-    let newY = parseFloat(e.target.value);
-    if (!isNaN(newY)) {
-        selectedObject.position.y = newY
-    }
-})
+function addRotationChangeListener(inputElem, axis) {
+    inputElem.addEventListener("input", (e) => {
+        let newRot = parseFloat(e.target.value);
+        if(!isNaN(newRot)) {
+            selectedObject.rotation[axis] = newRot;
+        }
+    })
+}
 
-zPosInput.addEventListener("input", (e) => {
-    let newZ = parseFloat(e.target.value);
-    if (!isNaN(newZ)) {
-        selectedObject.position.z = newZ
-    } 
-})
+const xRotInput = document.body.querySelector("input[x][rotation]");
+const yRotInput = document.body.querySelector("input[y][rotation]");
+const zRotInput = document.body.querySelector("input[z][rotation]");
+
+addRotationChangeListener(xRotInput, 'x'); 
+addRotationChangeListener(yRotInput, 'y'); 
+addRotationChangeListener(zRotInput, 'z'); 
 
 var colorPicker = document.getElementById('color-picker');
+
+
 var colorPreview = document.getElementById('color-preview');
 // Add an event listener to the color picker input element to update the color preview
 colorPicker.addEventListener('input', (event) => {
@@ -311,53 +343,7 @@ window.addEventListener("keydown", (e) => {
     }
 })
 
-//const pattern = "https://raw.githubusercontent.com/mrdoob/three.js/master/examples/textures/tri_pattern.jpg"
-let hoveredObjects = [];
 
-function checkIntersections() {
-    objectHoverRaycaster.setFromCamera(mouse, camera);
-    const intersects = objectHoverRaycaster.intersectObject(scene, true);
-    if(intersects.length > 0) {
-        const selected = intersects[0].object;
-        if(selectedObject == selected) {
-            return;
-        }
-        addhoveredObjects(selected)
-        objectHoverPass.selectedObjects = hoveredObjects; 
-    }
-}
-
-function addhoveredObjects(object) {
-    hoveredObjects = [];
-    hoveredObjects.push(object);
-} 
-
-const renderPass = new RenderPass(scene, camera);
-composer.addPass(renderPass);
-
-let objectHoverPass = new OutlinePass(new THREE.Vector2(window.innerWidth, window.innerHeight), scene, camera);
-objectHoverPass.edgeStrength = 2;
-objectHoverPass.edgeGlow = 2;
-objectHoverPass.edgeThickness = 2;
-objectHoverPass.pulsePeriod = 2;
-objectHoverPass.visibleEdgeColor.set("#ffffff")
-objectHoverPass.hiddenEdgeColor.set("#f3f3f3")
-composer.addPass(objectHoverPass);
-
-let selectedObjectPass = new OutlinePass(new THREE.Vector2(window.innerWidth, window.innerHeight), scene, camera)
-selectedObjectPass.edgeStrength = 1;
-selectedObjectPass.edgeGlow = 3;
-selectedObjectPass.edgeThickness = 2;
-selectedObjectPass.pulsePeriod = 0;
-selectedObjectPass.visibleEdgeColor.set("#ffffff")
-selectedObjectPass.hiddenEdgeColor.set("#f3f3f3")
-composer.addPass(selectedObjectPass)
-
-let effectFXAA = new ShaderPass(FXAAShader);
-effectFXAA.uniforms['resolution'].value.set(1 / window.innerWidth, 1 / window.innerHeight);
-composer.addPass(effectFXAA);
-
-selectedObject = cube;
 
 function setGuiInfo() {
     xPosInput.value = selectedObject.position.x;
@@ -368,5 +354,47 @@ function setGuiInfo() {
     ySizeInput.value = selectedObject.scale.y;
     zSizeInput.value = selectedObject.scale.z;
 
-    colorPicker.value = selectedObject.material.color;
+    colorPicker.value = "#" + selectedObject.material.color.getHexString();
+}
+
+// Get all elements with class 'createObjectOption'
+const createObjectOptions = document.querySelectorAll('#createObjectOption');
+
+// Loop through each element and add a click event listener
+createObjectOptions.forEach((option) => {
+    option.addEventListener('click', () => {
+        document.querySelector("div#objectCreateMenu").classList.add("hide")
+        // Get the shape name from the 'shape' attribute
+        const shapeName = option.getAttribute('shape');
+
+        // Create the new shape
+        let newShape;
+        switch (shapeName) {
+            case 'cube':
+                newShape = new THREE.BoxGeometry(1, 1, 1);
+                break;
+            case 'ico-sphere':
+                newShape = new THREE.IcosahedronGeometry(1, 2);
+                break;
+            // Add more cases for other shapes
+            default:
+                console.log('Invalid shape name');
+                return;
+        }
+
+        // Create a new mesh with the shape and add it to the scene
+        const material = new THREE.MeshPhongMaterial({ color: 0xffffff });
+        const mesh = new THREE.Mesh(newShape, material);
+        mesh.position.set(0, 0, 0);
+        scene.add(mesh);
+    });
+});
+
+
+
+function selectObject(object) {
+    selectedObjectPass.selectedObjects = [];
+    selectedObjectPass.selectedObjects = [object];
+    selectedObject = object;
+    transformControl.attach(object)
 }

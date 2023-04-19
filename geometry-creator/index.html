@@ -1,3 +1,5 @@
+<!DOCTYPE html>
+<html lang="en">
 <html lang="en">
 <head>
     <script async src="https://unpkg.com/es-module-shims@1.6.3/dist/es-module-shims.js"></script>
@@ -16,9 +18,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./style.css">
     <link rel="stylesheet" href="./colorpicker.css">
+    
     <script src="./main.js" nonce type="module"></script>
     <script src="./draggable.js" nonce type="module"></script>
-
+    <script src="https://kit.fontawesome.com/80c84cb732.js" crossorigin="anonymous"></script>
 
 
     <title>.</title>
@@ -29,25 +32,31 @@
             <h1 id="menuTitle">OBJECT INFO</h1>
             <hr>
             <div id="optionContainer">
-                <h1 id="optionHeader">SIZE</h1>
+                <h1 id="optionHeader">POSITION</h1>
                 <div id="optionFields" draggable="false">
-                    X: <input size x type="number" min="1" value="1"> Y: <input size y type="number" min="1" value="1"> Z: <input size z type="number" min="1" value="1">
+                    X: <input position x type="number" value="1"> Y: <input position y type="number" value="1"> Z: <input position z type="number" value="1">
                 </div>
             </div>
             <div id="optionContainer">
-                <h1 id="optionHeader">POSITION</h1>
+                <h1 id="optionHeader">SCALE</h1>
                 <div id="optionFields">
-                    X: <input position x type="number" min="1" value="0"> Y: <input position y type="number" min="1" value="0"> Z: <input position z type="number" min="1" value="0">
+                    X: <input size x type="number" value="0"> Y: <input size y type="number" value="0"> Z: <input size z type="number" value="0">
+                </div>
+            </div>
+            <div id="optionContainer">
+                <h1 id="optionHeader">ROTATION</h1>
+                <div id="optionFields">
+                    X: <input rotation x type="number" value="0"> Y: <input rotation y type="number" value="0"> Z: <input rotation z type="number" value="0">
                 </div>
             </div>
         </div>
-        <div id="objectMenu" material-info class="hide" draggable="true">
+        <div id="objectMenu" material-info class="hide" draggable="true" class="hide">
             <h1 id="menuTitle">MATERIAL</h1>
             <hr>
             <div id="optionContainer">
                 <h1 id="optionHeader">COLOR</h1>
-                    <input class="color-picker" type="color" id="color-picker" name="color-picker" value="#ffffff">
-                    <div class="color-preview" id="color-preview"></div>
+                <input class="color-picker" type="color" id="color-picker" name="color-picker" value="#ffffff">
+                <div class="color-preview" id="color-preview"></div>
             </div>
             <div id="optionContainer">
                 <h1 id="optionHeader">TYPE</h1>
@@ -59,6 +68,18 @@
                     <option value="labmert">Lambert Material</option>
                     <option value="depth">Depth Material</option>
                 </select>
+            </div>
+        </div>
+        <div id="objectCreateMenu" draggable="false" class="hide">
+            <h1 id="objectCreateMenuTitle">New Object</h1>
+            <hr>
+            <div id="createObjectOption" shape="cube">
+                <i id="shape" class="fa-regular fa-cube"></i>
+                <h1 id="objectName">Cube</h1>
+            </div>
+            <div id="createObjectOption" shape="ico-sphere">
+                <i id="shape" class="fa-regular fa-circle"></i>
+                <h1 id="objectName">Ico Sphere</h1> 
             </div>
         </div>
     </div>

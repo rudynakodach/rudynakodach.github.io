@@ -118,3 +118,56 @@ select:focus {
     visibility: hidden;
     display: none;
 }
+
+#objectCreateMenu { 
+    position: fixed;
+    pointer-events: all;
+    display: inline-block;
+    opacity: 1;
+    background-color: #2b2b2b;
+    border-radius: 7px;
+    text-align: left;
+}
+
+h1#objectCreateMenuTitle {
+    user-select: none;
+    color: #fff;
+    font-size: medium;
+    padding: 10px;
+    padding-left: 15px;
+    padding-bottom: 3px;
+}
+
+div#optionContainer {
+    display: inline-flexbox;
+}
+
+h1#objectName {
+    display: inline-block;
+    vertical-align: middle;
+    font-size: small;
+    font-family: 'Courier New', Courier, monospace;
+    color: #fff;
+    user-select: none;
+    padding-left: 10px
+}
+
+h1#objectCreateMenuTitle {
+    user-select: none; 
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #fff;
+    text-align: left;
+    font-size: large;
+}
+
+div#createObjectOption {
+    transition: background 200ms ease-out;
+}
+
+div#createObjectOption:hover {
+    background-color: #4b4b4b;
+}
+
+.shape {
+    color: #fff
+}
