@@ -7,6 +7,7 @@ import { OutlinePass } from 'three/addons/postprocessing/OutlinePass.js';
 import { EffectComposer } from 'three/addons/postprocessing/EffectComposer.js'; 
 import { TransformControls } from 'three/addons/controls/TransformControls.js';
 
+var isCopyingMaterialColor;
 var selectedObject;
 const objectSelectRaycaster = new THREE.Raycaster();
 const scene = new THREE.Scene();
@@ -144,15 +145,23 @@ canvas.addEventListener("mousedown", (event) => {
     } else if(event.button == 0) { 
         objectSelectRaycaster.setFromCamera(mouse, camera);
         const intersects = objectSelectRaycaster.intersectObjects(scene.children, true);
-        if (intersects.length > 0) {
-            intersects.forEach((intersect, i) => {
-                const obj = intersect.object;
-                if (!staticElements.includes(obj)) {
-                    selectObject(obj)
-                    setGuiInfo();
-                    return;
-                }
-            });
+        if (isCopyingMaterialColor) {
+            if(intersects.length > 0) {
+                selectedObject.material.color = intersects[0].object.material.color;
+                console.log("applied color")
+            }
+            isCopyingMaterialColor = false;
+        } else {
+            if (intersects.length > 0) {
+                intersects.forEach((intersect, i) => {
+                    const obj = intersect.object;
+                    if (!staticElements.includes(obj)) {
+                        selectObject(obj)
+                        setGuiInfo();
+                        return;
+                    }
+                });
+            }
         }
     }
 })
@@ -354,17 +363,13 @@ function setGuiInfo() {
     colorPicker.value = "#" + selectedObject.material.color.getHexString();
 }
 
-// Get all elements with class 'createObjectOption'
 const createObjectOptions = document.querySelectorAll('#createObjectOption');
 
-// Loop through each element and add a click event listener
 createObjectOptions.forEach((option) => {
     option.addEventListener('click', () => {
         document.querySelector("div#objectCreateMenu").classList.add("hide")
-        // Get the shape name from the 'shape' attribute
         const shapeName = option.getAttribute('shape');
 
-        // Create the new shape
         let newShape;
         switch (shapeName) {
             case 'cube':
@@ -373,13 +378,11 @@ createObjectOptions.forEach((option) => {
             case 'ico-sphere':
                 newShape = new THREE.IcosahedronGeometry(1, 2);
                 break;
-            // Add more cases for other shapes
             default:
                 console.log('Invalid shape name');
                 return;
         }
 
-        // Create a new mesh with the shape and add it to the scene
         const material = new THREE.MeshPhongMaterial({ color: 0xffffff });
         const mesh = new THREE.Mesh(newShape, material);
         mesh.position.set(0, 0, 0);
@@ -395,3 +398,10 @@ function selectObject(object) {
     selectedObject = object;
     //transformControl.attach(object)
 }
+
+var isCopyingMaterialColor = false;
+const copyMatColButton = document.querySelector("button#color-copy") 
+copyMatColButton.addEventListener("click", (e) => {
+    isCopyingMaterialColor = true;
+    console.log("e")
+})
