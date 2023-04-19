@@ -25,11 +25,8 @@ const canvas = renderer.domElement;
 document.body.appendChild(canvas);
 canvas.setAttribute("draggable", "false")
 
-const transformControl = new TransformControls(camera, canvas)
-scene.add(transformControl)
-
-transformControl.translateControls = true;
-transformControl.rotateControls = true;
+//const transformControl = new TransformControls(camera, canvas)
+//scene.add(transformControl)
 
 let composer = new EffectComposer(renderer); //FF4514
 //const pattern = "https://raw.githubusercontent.com/mrdoob/three.js/master/examples/textures/tri_pattern.jpg"
@@ -396,5 +393,5 @@ function selectObject(object) {
     selectedObjectPass.selectedObjects = [];
     selectedObjectPass.selectedObjects = [object];
     selectedObject = object;
-    transformControl.attach(object)
+    //transformControl.attach(object)
 }
