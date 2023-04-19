@@ -140,6 +140,8 @@ h1#objectCreateMenuTitle {
 
 div#optionContainer {
     display: inline-flexbox;
+    vertical-align: middle;
+    text-align: center;
 }
 
 h1#objectName {

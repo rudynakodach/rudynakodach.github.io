@@ -8,7 +8,6 @@ document.body.addEventListener("dragstart", (e) => {
 
 document.body.addEventListener("drag", (e) => {
     if(e.target.getAttribute("draggable") == "false") {return;}
-    console.log(e.target.nodeName)
     if(e.target.nodeName !== "INPUT") {
         // set the new position of the element based on the mouse position
         let left = e.clientX - offsetX;

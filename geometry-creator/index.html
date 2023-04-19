@@ -57,8 +57,9 @@
                 <h1 id="optionHeader">COLOR</h1>
                 <input class="color-picker" type="color" id="color-picker" name="color-picker" value="#ffffff">
                 <div class="color-preview" id="color-preview"></div>
-                <button id="color-copy">Copy Color</button>
             </div>
+            <button id="color-copy">Copy Color</button>
+            <button id="material-copy">Copy Material</button>
             <div id="optionContainer">
                 <h1 id="optionHeader">TYPE</h1>
                 <select name="material-type" id="mat-type">
@@ -69,6 +70,10 @@
                     <option value="labmert">Lambert Material</option>
                     <option value="depth">Depth Material</option>
                 </select>
+            </div>
+            <div id="optionContainer">
+                <h1 id="optionHeader">OPACITY</h1>
+                <input opacity type="range" min="0" max="100" value="100" id="opacity-slider">
             </div>
         </div>
         <div id="objectCreateMenu" draggable="false" class="hide">

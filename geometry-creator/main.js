@@ -8,6 +8,7 @@ import { EffectComposer } from 'three/addons/postprocessing/EffectComposer.js';
 import { TransformControls } from 'three/addons/controls/TransformControls.js';
 
 var isCopyingMaterialColor;
+var isCopyingMaterial;
 var selectedObject;
 const objectSelectRaycaster = new THREE.Raycaster();
 const scene = new THREE.Scene();
@@ -143,15 +144,23 @@ canvas.addEventListener("mousedown", (event) => {
         lastMousePosition = {x: event.clientX, y: event.clientY};
         document.body.classList.add("ch");
     } else if(event.button == 0) { 
-        objectSelectRaycaster.setFromCamera(mouse, camera);
+        objectSelectRaycaster.setFromCamera(mouse, camera); 
         const intersects = objectSelectRaycaster.intersectObjects(scene.children, true);
         if (isCopyingMaterialColor) {
             if(intersects.length > 0) {
-                selectedObject.material.color = intersects[0].object.material.color;
-                console.log("applied color")
+                const oldColor = intersects[0].object.material.color;
+                selectedObject.material.color = oldColor;
             }
             isCopyingMaterialColor = false;
-        } else {
+            isCopyingMaterial = false;
+        } else if(isCopyingMaterial) {
+            if(intersects.length > 0) {
+                selectedObject.material.color = intersects[0].object.material.clone(); 
+            }
+            isCopyingMaterialColor = false;
+            isCopyingMaterial = false; 
+        }
+         else {
             if (intersects.length > 0) {
                 intersects.forEach((intersect, i) => {
                     const obj = intersect.object;
@@ -399,9 +408,22 @@ function selectObject(object) {
     //transformControl.attach(object)
 }
 
-var isCopyingMaterialColor = false;
 const copyMatColButton = document.querySelector("button#color-copy") 
 copyMatColButton.addEventListener("click", (e) => {
+    isCopyingMaterial = false;
     isCopyingMaterialColor = true;
-    console.log("e")
+})
+
+const copyMatButton = document.querySelector("button#material-copy")
+copyMatButton.addEventListener("click", (e) => {
+    isCopyingMaterialColor = false;
+    isCopyingMaterial = true;
+})
+
+const opacitySlider = document.querySelector("input[opacity]");
+opacitySlider.addEventListener("input", (e) => {
+    selectedObject.material.transparent = true;
+    const newOpacity = e.target.value / 100; 
+    selectedObject.material.opacity = newOpacity;
+    console.log(selectedObject.material.opacity)
 })
