@@ -298,7 +298,7 @@ function addRotationChangeListener(inputElem, axis) {
     inputElem.addEventListener("input", (e) => {
         let newRot = parseFloat(e.target.value);
         if(!isNaN(newRot)) {
-            selectedObject.rotation[axis] = newRot;
+            selectedObject.rotation[axis] = Math.radians(newRot); 
         }
     })
 }
@@ -369,6 +369,10 @@ function setGuiInfo() {
     ySizeInput.value = selectedObject.scale.y;
     zSizeInput.value = selectedObject.scale.z;
 
+    xRotInput.value = Math.degrees(selectedObject.rotation.x)
+    yRotInput.value = Math.degrees(selectedObject.rotation.y)
+    zRotInput.value = Math.degrees(selectedObject.rotation.z)
+
     colorPicker.value = "#" + selectedObject.material.color.getHexString();
 }
 
@@ -427,3 +431,13 @@ opacitySlider.addEventListener("input", (e) => {
     selectedObject.material.opacity = newOpacity;
     console.log(selectedObject.material.opacity)
 })
+
+// radians to degrees
+Math.radians = function (degrees) {
+    return degrees * Math.PI / 180;
+}
+
+// degrees to radians.
+Math.degrees = function (radians) {
+    return radians * 180 / Math.PI;
+}
